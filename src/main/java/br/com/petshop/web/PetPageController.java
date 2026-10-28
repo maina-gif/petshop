@@ -55,7 +55,7 @@ public class PetPageController {
 
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable Long id, Model model, RedirectAttributes ra) {
-        return pets.findComTutorById(id).map(p -> {
+        return pets.findById(id).map(p -> {
             model.addAttribute("pet", PetForm.de(p));
             model.addAttribute("tutores", listaTutores());
             return "pets/form";

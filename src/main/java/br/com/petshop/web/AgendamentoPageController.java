@@ -59,7 +59,7 @@ public class AgendamentoPageController {
 
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable Long id, Model model, RedirectAttributes ra) {
-        return agendamentos.findComPetById(id).map(a -> {
+        return agendamentos.findById(id).map(a -> {
             model.addAttribute("agendamento", AgendamentoForm.de(a));
             opcoes(model);
             return "agendamentos/form";
