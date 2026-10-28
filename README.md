@@ -57,6 +57,17 @@ Rotas principais:
 
 CPF e telefone são armazenados criptografados no banco. A busca por nome funciona em campos não criptografados. A sessão de servidor está configurada para 30 segundos.
 
+## 5. Telas (front-end)
+
+Com a aplicação rodando, acesse `http://localhost:8080` no navegador. Ele leva para a tela de login, e depois do login abre o painel com o menu para Tutores, Pets, Produtos e Agendamentos.
+
+- As telas usam Thymeleaf + Bootstrap 5 e ficam em `src/main/resources/templates`.
+- CSS e JavaScript ficam em `src/main/resources/static`.
+- A API REST (`/api/**`) continua funcionando com HTTP Basic, separada das telas, que usam login por formulário com CSRF.
+- A sessão expira após 30 segundos sem atividade, tanto no navegador (`inatividade.js`) quanto no servidor (`InatividadeFilter`).
+
+O mapa das telas, o contrato entre front e back e o roteiro de testes estão em [`docs/telas-e-fluxo.md`](docs/telas-e-fluxo.md).
+
 ## Observação
 
-Esta é uma base inicial para testar e integrar com os templates do Nicolas. Ainda devem ser acrescentados testes automatizados, atualização e edição completas dos CRUDs e o JavaScript de inatividade no front-end.
+Esta é uma base inicial para testar e integrar com os templates do Nicolas. Pelas telas os CRUDs já têm cadastro, edição, exclusão e busca. Ainda devem ser acrescentados testes automatizados.

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${produto.id == null ? 'Novo produto' : 'Editar produto'})}"></head>
+<body>
+<nav th:replace="~{fragments/layout :: menu}"></nav>
+
+<main class="container py-4" style="max-width: 760px">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a th:href="@{/produtos}">Produtos</a></li>
+            <li class="breadcrumb-item active" aria-current="page" th:text="${produto.id == null} ? 'Novo' : 'Editar'">Novo</li>
+        </ol>
+    </nav>
+    <h1 class="h3 mb-3" th:text="${produto.id == null} ? 'Novo produto' : 'Editar produto'">Novo produto</h1>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <form th:action="@{/produtos/salvar}" th:object="${produto}" method="post" novalidate>
+                <input type="hidden" th:field="*{id}">
+
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label for="nome" class="form-label">Nome *</label>
+                        <input type="text" th:field="*{nome}" class="form-control" th:errorclass="is-invalid" maxlength="120" required>
+                        <div class="invalid-feedback" th:errors="*{nome}">erro</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="preco" class="form-label">Preço (R$) *</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text">R$</span>
+                            <input type="number" th:field="*{preco}" class="form-control" th:errorclass="is-invalid"
+                                   step="0.01" min="0" required>
+                            <div class="invalid-feedback" th:errors="*{preco}">erro</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="estoque" class="form-label">Estoque *</label>
+                        <input type="number" th:field="*{estoque}" class="form-control" th:errorclass="is-invalid" min="0" step="1" required>
+                        <div class="invalid-feedback" th:errors="*{estoque}">erro</div>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2 mt-4">
+                    <button type="submit" class="btn btn-pet"><i class="bi bi-check-lg"></i> Salvar</button>
+                    <a th:href="@{/produtos}" class="btn btn-outline-secondary">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<div th:replace="~{fragments/layout :: avisoSessao}"></div>
+<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>

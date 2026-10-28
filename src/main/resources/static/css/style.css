@@ -1,0 +1,100 @@
+/* Identidade visual do Pet Shop (em cima do Bootstrap 5) */
+:root {
+    --pet-primaria: #0f766e;     /* verde-azulado */
+    --pet-primaria-escura: #115e59;
+    --pet-fundo: #f4f7f6;
+}
+
+body {
+    background-color: var(--pet-fundo);
+}
+
+/* barra do menu */
+.bg-pet {
+    background-color: var(--pet-primaria) !important;
+}
+
+.navbar .nav-link.active {
+    font-weight: 600;
+    border-bottom: 2px solid #fff;
+}
+
+/* botão principal */
+.btn-pet {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--pet-primaria);
+    --bs-btn-border-color: var(--pet-primaria);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--pet-primaria-escura);
+    --bs-btn-hover-border-color: var(--pet-primaria-escura);
+    --bs-btn-active-bg: var(--pet-primaria-escura);
+    --bs-btn-disabled-bg: var(--pet-primaria);
+    --bs-btn-disabled-border-color: var(--pet-primaria);
+}
+
+/* tela de login */
+.pagina-login {
+    background: linear-gradient(135deg, #ccfbf1 0%, var(--pet-fundo) 60%);
+}
+
+.logo-login {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: .5rem;
+}
+
+/* cards do painel */
+.card-resumo {
+    border: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .08);
+    transition: transform .15s ease, box-shadow .15s ease;
+    color: inherit;
+}
+
+.card-resumo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .1);
+}
+
+.card-resumo .icone-resumo {
+    font-size: 1.6rem;
+}
+
+.card-resumo .numero {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* agendamento cancelado na lista */
+.linha-cancelada td {
+    text-decoration: line-through;
+}
+
+.linha-cancelada td:last-child,
+.linha-cancelada td:nth-last-child(2) {
+    text-decoration: none;
+}
+
+/* aviso de sessão expirando (canto inferior) */
+.aviso-sessao {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+    max-width: 420px;
+    margin-left: auto;
+    z-index: 1080;
+    padding: .9rem 1rem;
+    border-radius: .5rem;
+    background: #fff3cd;
+    border: 1px solid #ffe69c;
+    color: #664d03;
+}
+
+/* foco visível pra quem navega pelo teclado */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #5eead4;
+    outline-offset: 2px;
+}

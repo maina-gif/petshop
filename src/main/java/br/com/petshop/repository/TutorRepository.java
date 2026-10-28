@@ -1,1 +1,2 @@
-package br.com.petshop.repository; import br.com.petshop.entity.Tutor; import org.springframework.data.jpa.repository.JpaRepository; import java.util.List; public interface TutorRepository extends JpaRepository<Tutor,Long>{List<Tutor> findByNomeContainingIgnoreCase(String nome);}
+package br.com.petshop.repository; import br.com.petshop.entity.Tutor; import org.springframework.data.jpa.repository.JpaRepository; import java.util.List; public interface TutorRepository extends JpaRepository<Tutor,Long>{List<Tutor> findByNomeContainingIgnoreCase(String nome);
+ List<Tutor> findAllByOrderByNomeAsc(); List<Tutor> findByNomeContainingIgnoreCaseOrderByNomeAsc(String nome);}
